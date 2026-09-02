@@ -31,3 +31,34 @@ class Solution:
 
 # Time Complexity: O(n log n)
 # Space Complexity: O(n)
+
+# QUICK SORT
+import random
+
+class Solution:
+    def sortArray(self, nums: List[int]) -> List[int]:
+        if len(nums) <= 1:
+            return nums
+
+        pivot = random.choice(nums)
+
+        left = []
+        middle = []
+        right = []
+
+        for num in nums:
+            if num < pivot:
+                left.append(num)
+            elif num == pivot:
+                middle.append(num)
+            else:
+                right.append(num)
+
+        return self.sortArray(left) + middle + self.sortArray(right)
+
+# Time Complexity
+# Average case: O(n log n)
+# Worst case: O(n^2)
+
+# Space Complexity
+# O(n)
